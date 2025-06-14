@@ -1402,14 +1402,8 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.20": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/_._": {}
-        }
+      "Microsoft.EntityFrameworkCore.Analyzers/9.0.0": {
+        "type": "package"
       },
       "Microsoft.EntityFrameworkCore.Design/7.0.20": {
         "type": "package",
@@ -1467,17 +1461,8 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/7.0.20": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "7.0.20"
-        },
-        "compile": {
-          "lib/net6.0/_._": {}
-        },
-        "runtime": {
-          "lib/net6.0/_._": {}
-        }
+      "Microsoft.EntityFrameworkCore.Tools/9.0.6": {
+        "type": "package"
       },
       "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
         "type": "package",
@@ -4052,6 +4037,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
           "Microsoft.AspNetCore.Identity.UI": "7.0.20",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20"
         },
         "compile": {
@@ -4067,6 +4053,7 @@
         "dependencies": {
           "Inventory.ViewModel": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "inventory.models": "1.0.0"
         },
@@ -4084,6 +4071,7 @@
           "Inventory.repository": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "inventory.models": "1.0.0"
         },
@@ -4102,6 +4090,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "inventory.models": "1.0.0"
         },
@@ -5995,17 +5984,17 @@
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.20": {
-      "sha512": "doouHLWFcYcd08QUh9+4aZu3sk4WySp/aSOHeIzNhMJ58ESQXUAGDvB1sjJ4HmE0tmCea51NGzgtHE5IBmFLGg==",
+    "Microsoft.EntityFrameworkCore.Analyzers/9.0.0": {
+      "sha512": "Qje+DzXJOKiXF72SL0XxNlDtTkvWWvmwknuZtFahY5hIQpRKO59qnGuERIQ3qlzuq5x4bAJ8WMbgU5DLhBgeOQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.20",
+      "path": "microsoft.entityframeworkcore.analyzers/9.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
-        "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.7.0.20.nupkg.sha512",
+        "docs/PACKAGE.md",
+        "microsoft.entityframeworkcore.analyzers.9.0.0.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -6052,17 +6041,17 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/7.0.20": {
-      "sha512": "tu4A/gRuWxAg0c+7i+SzP5VYDwPUTgcND6ymNxwgcLBXr24tG16sNqUn7/fpMhBTeXIpceHu5DgQ2RJTtwoJag==",
+    "Microsoft.EntityFrameworkCore.Tools/9.0.6": {
+      "sha512": "2Qs+OnYPOrfb5wpSXNGdm9v3QattLhou26xamaICIE9jqWAW7xdzDlY/yXRz6zKFLnzRH70IM+XXYVElEVeQ9Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/7.0.20",
+      "path": "microsoft.entityframeworkcore.tools/9.0.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.tools.7.0.20.nupkg.sha512",
+        "docs/PACKAGE.md",
+        "microsoft.entityframeworkcore.tools.9.0.6.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -6070,9 +6059,9 @@
         "tools/EntityFrameworkCore.psm1",
         "tools/about_EntityFrameworkCore.help.txt",
         "tools/init.ps1",
-        "tools/net461/any/ef.exe",
-        "tools/net461/win-arm64/ef.exe",
-        "tools/net461/win-x86/ef.exe",
+        "tools/net472/any/ef.exe",
+        "tools/net472/win-arm64/ef.exe",
+        "tools/net472/win-x86/ef.exe",
         "tools/netcoreapp2.0/any/ef.dll",
         "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
       ]
@@ -11819,30 +11808,32 @@
     "net7.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.0",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.20",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 9.0.0",
+      "Microsoft.EntityFrameworkCore.Design >= 7.0.20",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.20",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.20",
+      "Microsoft.EntityFrameworkCore.Tools >= 9.0.6",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.12",
       "inventory.utility >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fayas\\.nuget\\packages\\": {},
+    "C:\\Users\\muham\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub_Repo\\IMS2\\Online_Inventory_Management_System\\Online_Inventory_Management_System.csproj",
+      "projectUniqueName": "D:\\GitHub_Repo\\IMS\\Online_Inventory_Management_System\\Online_Inventory_Management_System.csproj",
       "projectName": "Online_Inventory_Management_System",
-      "projectPath": "D:\\GitHub_Repo\\IMS2\\Online_Inventory_Management_System\\Online_Inventory_Management_System.csproj",
-      "packagesPath": "C:\\Users\\Fayas\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub_Repo\\IMS2\\Online_Inventory_Management_System\\obj\\",
+      "projectPath": "D:\\GitHub_Repo\\IMS\\Online_Inventory_Management_System\\Online_Inventory_Management_System.csproj",
+      "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub_Repo\\IMS\\Online_Inventory_Management_System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Fayas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\muham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11857,8 +11848,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\GitHub_Repo\\IMS2\\inventory.utility\\inventory.utility.csproj": {
-              "projectPath": "D:\\GitHub_Repo\\IMS2\\inventory.utility\\inventory.utility.csproj"
+            "D:\\GitHub_Repo\\IMS\\inventory.utility\\inventory.utility.csproj": {
+              "projectPath": "D:\\GitHub_Repo\\IMS\\inventory.utility\\inventory.utility.csproj"
             }
           }
         }
@@ -11873,7 +11864,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net7.0": {
@@ -11887,6 +11878,16 @@
             "target": "Package",
             "version": "[7.0.20, )"
           },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[7.0.20, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.20, )"
@@ -11895,7 +11896,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[7.0.20, )"
+            "version": "[9.0.6, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
@@ -11921,7 +11922,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

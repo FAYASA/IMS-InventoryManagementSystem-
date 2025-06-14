@@ -11,11 +11,9 @@ namespace Inventory.repository
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :
             base(options)
         {
-
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
@@ -23,7 +21,7 @@ namespace Inventory.repository
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillType> BillTypes { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<inventory.models.Branch> Branches { get; set; }
+        public DbSet<inventory.models.Branch> Branches { get; set; } // Corrected: Ensure 'Branch' is a class, not a namespace  
         public DbSet<inventory.models.Currency> Currencies { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<inventory.models.CustomerType> CustomerTypes { get; set; }
@@ -50,5 +48,23 @@ namespace Inventory.repository
         public DbSet<VendorType> vendorTypes { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Prevent cascade delete for Product -> Currency  
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Currency)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CurrencyId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Prevent cascade delete for Branch -> Currency  
+            modelBuilder.Entity<inventory.models.Branch>() //
+                .HasOne(b => b.Currency)
+                .WithMany(c => c.Branches)
+                .HasForeignKey(b => b.CurrencyId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

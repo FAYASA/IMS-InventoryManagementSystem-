@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub_Repo\\IMS2\\inventory.models\\inventory.models.csproj": {}
+    "D:\\GitHub_Repo\\IMS\\inventory.models\\inventory.models.csproj": {}
   },
   "projects": {
-    "D:\\GitHub_Repo\\IMS2\\inventory.models\\inventory.models.csproj": {
+    "D:\\GitHub_Repo\\IMS\\inventory.models\\inventory.models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub_Repo\\IMS2\\inventory.models\\inventory.models.csproj",
+        "projectUniqueName": "D:\\GitHub_Repo\\IMS\\inventory.models\\inventory.models.csproj",
         "projectName": "inventory.models",
-        "projectPath": "D:\\GitHub_Repo\\IMS2\\inventory.models\\inventory.models.csproj",
-        "packagesPath": "C:\\Users\\Fayas\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub_Repo\\IMS2\\inventory.models\\obj\\",
+        "projectPath": "D:\\GitHub_Repo\\IMS\\inventory.models\\inventory.models.csproj",
+        "packagesPath": "C:\\Users\\muham\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub_Repo\\IMS\\inventory.models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Fayas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\muham\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net7.0": {
@@ -58,9 +58,25 @@
               "target": "Package",
               "version": "[7.0.20, )"
             },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.20, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.6, )"
             }
           },
           "imports": [
@@ -79,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

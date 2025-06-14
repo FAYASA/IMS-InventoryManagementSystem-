@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Online_Inventory_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250519103306_MakeProducBarCode")]
-    partial class MakeProducBarCode
+    [Migration("20250614163238_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -358,6 +358,8 @@ namespace Online_Inventory_Management_System.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BranchId");
+
+                    b.HasIndex("CurrencyId");
 
                     b.ToTable("Branches");
                 });
@@ -717,6 +719,10 @@ namespace Online_Inventory_Management_System.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("ProductId");
+
+                    b.HasIndex("BranchId");
+
+                    b.HasIndex("CurrencyId");
 
                     b.HasIndex("PaymentTypeId");
 
@@ -1286,8 +1292,31 @@ namespace Online_Inventory_Management_System.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("inventory.models.Branch", b =>
+                {
+                    b.HasOne("inventory.models.Currency", "Currency")
+                        .WithMany("Branches")
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Currency");
+                });
+
             modelBuilder.Entity("inventory.models.Product", b =>
                 {
+                    b.HasOne("inventory.models.Branch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("inventory.models.Currency", "Currency")
+                        .WithMany("Products")
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("inventory.models.PaymentType", null)
                         .WithMany("Products")
                         .HasForeignKey("PaymentTypeId");
@@ -1297,6 +1326,10 @@ namespace Online_Inventory_Management_System.Migrations
                         .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Currency");
 
                     b.Navigation("ProductType");
                 });
@@ -1321,6 +1354,13 @@ namespace Online_Inventory_Management_System.Migrations
                         .IsRequired();
 
                     b.Navigation("SalesOrder");
+                });
+
+            modelBuilder.Entity("inventory.models.Currency", b =>
+                {
+                    b.Navigation("Branches");
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("inventory.models.PaymentType", b =>

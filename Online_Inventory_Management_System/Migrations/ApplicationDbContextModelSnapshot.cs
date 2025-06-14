@@ -356,6 +356,8 @@ namespace Online_Inventory_Management_System.Migrations
 
                     b.HasKey("BranchId");
 
+                    b.HasIndex("CurrencyId");
+
                     b.ToTable("Branches");
                 });
 
@@ -1287,6 +1289,17 @@ namespace Online_Inventory_Management_System.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("inventory.models.Branch", b =>
+                {
+                    b.HasOne("inventory.models.Currency", "Currency")
+                        .WithMany("Branches")
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Currency");
+                });
+
             modelBuilder.Entity("inventory.models.Product", b =>
                 {
                     b.HasOne("inventory.models.Branch", "Branch")
@@ -1296,9 +1309,9 @@ namespace Online_Inventory_Management_System.Migrations
                         .IsRequired();
 
                     b.HasOne("inventory.models.Currency", "Currency")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CurrencyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("inventory.models.PaymentType", null)
@@ -1338,6 +1351,13 @@ namespace Online_Inventory_Management_System.Migrations
                         .IsRequired();
 
                     b.Navigation("SalesOrder");
+                });
+
+            modelBuilder.Entity("inventory.models.Currency", b =>
+                {
+                    b.Navigation("Branches");
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("inventory.models.PaymentType", b =>

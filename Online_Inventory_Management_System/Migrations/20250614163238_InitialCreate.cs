@@ -596,38 +596,31 @@ namespace Online_Inventory_Management_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "products",
+                name: "Branches",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    BranchId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MeasureUnitId = table.Column<int>(type: "int", nullable: false),
-                    BuyingPrice = table.Column<double>(type: "float", nullable: false),
-                    SellingPrice = table.Column<double>(type: "float", nullable: false),
-                    BranchId = table.Column<int>(type: "int", nullable: false),
                     CurrencyId = table.Column<int>(type: "int", nullable: false),
-                    ProductTypeId = table.Column<int>(type: "int", nullable: false),
-                    PaymentTypeId = table.Column<int>(type: "int", nullable: true)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactPerson = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_products", x => x.ProductId);
+                    table.PrimaryKey("PK_Branches", x => x.BranchId);
                     table.ForeignKey(
-                        name: "FK_products_PaymentTypes_PaymentTypeId",
-                        column: x => x.PaymentTypeId,
-                        principalTable: "PaymentTypes",
-                        principalColumn: "PaymentTypeId");
-                    table.ForeignKey(
-                        name: "FK_products_productTypes_ProductTypeId",
-                        column: x => x.ProductTypeId,
-                        principalTable: "productTypes",
-                        principalColumn: "ProductTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Branches_Currencies_CurrencyId",
+                        column: x => x.CurrencyId,
+                        principalTable: "Currencies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -690,6 +683,53 @@ namespace Online_Inventory_Management_System.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "products",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MeasureUnitId = table.Column<int>(type: "int", nullable: false),
+                    BuyingPrice = table.Column<double>(type: "float", nullable: false),
+                    SellingPrice = table.Column<double>(type: "float", nullable: false),
+                    ProductTypeId = table.Column<int>(type: "int", nullable: false),
+                    CurrencyId = table.Column<int>(type: "int", nullable: false),
+                    BranchId = table.Column<int>(type: "int", nullable: false),
+                    PaymentTypeId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_products", x => x.ProductId);
+                    table.ForeignKey(
+                        name: "FK_products_Branches_BranchId",
+                        column: x => x.BranchId,
+                        principalTable: "Branches",
+                        principalColumn: "BranchId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_products_Currencies_CurrencyId",
+                        column: x => x.CurrencyId,
+                        principalTable: "Currencies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_products_PaymentTypes_PaymentTypeId",
+                        column: x => x.PaymentTypeId,
+                        principalTable: "PaymentTypes",
+                        principalColumn: "PaymentTypeId");
+                    table.ForeignKey(
+                        name: "FK_products_productTypes_ProductTypeId",
+                        column: x => x.ProductTypeId,
+                        principalTable: "productTypes",
+                        principalColumn: "ProductTypeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -728,6 +768,21 @@ namespace Online_Inventory_Management_System.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Branches_CurrencyId",
+                table: "Branches",
+                column: "CurrencyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_products_BranchId",
+                table: "products",
+                column: "BranchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_products_CurrencyId",
+                table: "products",
+                column: "CurrencyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_products_PaymentTypeId",
@@ -779,9 +834,6 @@ namespace Online_Inventory_Management_System.Migrations
 
             migrationBuilder.DropTable(
                 name: "Brands");
-
-            migrationBuilder.DropTable(
-                name: "Currencies");
 
             migrationBuilder.DropTable(
                 name: "Customers");
@@ -850,6 +902,9 @@ namespace Online_Inventory_Management_System.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "Branches");
+
+            migrationBuilder.DropTable(
                 name: "PaymentTypes");
 
             migrationBuilder.DropTable(
@@ -860,6 +915,9 @@ namespace Online_Inventory_Management_System.Migrations
 
             migrationBuilder.DropTable(
                 name: "salesOrders");
+
+            migrationBuilder.DropTable(
+                name: "Currencies");
         }
     }
 }

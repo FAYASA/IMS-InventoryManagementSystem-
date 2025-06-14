@@ -10,8 +10,10 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
           "Microsoft.AspNetCore.Identity.UI": "7.0.20",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "7.0.20",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
-          "Microsoft.EntityFrameworkCore.Tools": "7.0.20",
+          "Microsoft.EntityFrameworkCore.Tools": "9.0.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12",
           "inventory.utility": "1.0.0"
         },
@@ -1202,7 +1204,7 @@
       "Microsoft.EntityFrameworkCore/7.0.20": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "7.0.20",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.20",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -1222,7 +1224,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.20": {},
+      "Microsoft.EntityFrameworkCore.Analyzers/9.0.0": {},
       "Microsoft.EntityFrameworkCore.Design/7.0.20": {
         "dependencies": {
           "Humanizer.Core": "2.14.1",
@@ -1261,11 +1263,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/7.0.20": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "7.0.20"
-        }
-      },
+      "Microsoft.EntityFrameworkCore.Tools/9.0.6": {},
       "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
@@ -2605,6 +2603,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
           "Microsoft.AspNetCore.Identity.UI": "7.0.20",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20"
         },
         "runtime": {
@@ -2618,6 +2617,7 @@
         "dependencies": {
           "Inventory.ViewModel": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "inventory.models": "1.0.0"
         },
@@ -2633,6 +2633,7 @@
           "Inventory.repository": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "inventory.models": "1.0.0"
         },
@@ -2646,6 +2647,7 @@
       "Inventory.ViewModel/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
           "inventory.models": "1.0.0"
         },
@@ -3217,12 +3219,12 @@
       "path": "microsoft.entityframeworkcore.abstractions/7.0.20",
       "hashPath": "microsoft.entityframeworkcore.abstractions.7.0.20.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.20": {
+    "Microsoft.EntityFrameworkCore.Analyzers/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-doouHLWFcYcd08QUh9+4aZu3sk4WySp/aSOHeIzNhMJ58ESQXUAGDvB1sjJ4HmE0tmCea51NGzgtHE5IBmFLGg==",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.20",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.20.nupkg.sha512"
+      "sha512": "sha512-Qje+DzXJOKiXF72SL0XxNlDtTkvWWvmwknuZtFahY5hIQpRKO59qnGuERIQ3qlzuq5x4bAJ8WMbgU5DLhBgeOQ==",
+      "path": "microsoft.entityframeworkcore.analyzers/9.0.0",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.9.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Design/7.0.20": {
       "type": "package",
@@ -3245,12 +3247,12 @@
       "path": "microsoft.entityframeworkcore.sqlserver/7.0.20",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.7.0.20.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Tools/7.0.20": {
+    "Microsoft.EntityFrameworkCore.Tools/9.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tu4A/gRuWxAg0c+7i+SzP5VYDwPUTgcND6ymNxwgcLBXr24tG16sNqUn7/fpMhBTeXIpceHu5DgQ2RJTtwoJag==",
-      "path": "microsoft.entityframeworkcore.tools/7.0.20",
-      "hashPath": "microsoft.entityframeworkcore.tools.7.0.20.nupkg.sha512"
+      "sha512": "sha512-2Qs+OnYPOrfb5wpSXNGdm9v3QattLhou26xamaICIE9jqWAW7xdzDlY/yXRz6zKFLnzRH70IM+XXYVElEVeQ9Q==",
+      "path": "microsoft.entityframeworkcore.tools/9.0.6",
+      "hashPath": "microsoft.entityframeworkcore.tools.9.0.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
       "type": "package",
